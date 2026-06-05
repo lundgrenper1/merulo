@@ -390,7 +390,7 @@ footer{background:#ede8e0;padding:3rem 3rem 1.5rem;border-top:0.5px solid #c4b49
 
 <script>
 const ICAL_URL = 'https://calendar.google.com/calendar/ical/2280143605a1050a416ce36639e00851276d290e795011c6fccc917013eaa873%40group.calendar.google.com/public/basic.ics';
-const PROXY = 'https://api.allorigins.win/get?url=';
+const PROXY = 'https://corsproxy.io/?url=';
 const DAYS=['Mån','Tis','Ons','Tor','Fre','Lör','Sön'];
 const MONTHS=['Januari','Februari','Mars','April','Maj','Juni','Juli','Augusti','September','Oktober','November','December'];
 let cur=new Date();cur.setDate(1);
@@ -469,9 +469,9 @@ function changeMonth(dir){cur.setMonth(cur.getMonth()+dir);renderCal();}
 
 // Fetch calendar from Google via proxy
 fetch(PROXY+encodeURIComponent(ICAL_URL))
-  .then(r=>r.json())
-  .then(data=>{
-    bookedDates=parseIcal(data.contents);
+  .then(r=>r.text())
+  .then(text=>{
+    bookedDates=parseIcal(text);
     renderCal();
   })
   .catch(()=>renderCal()); // Show calendar even if fetch fails
