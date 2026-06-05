@@ -389,8 +389,7 @@ footer{background:#ede8e0;padding:3rem 3rem 1.5rem;border-top:0.5px solid #c4b49
 </footer>
 
 <script>
-const ICAL_URL = 'https://calendar.google.com/calendar/ical/2280143605a1050a416ce36639e00851276d290e795011c6fccc917013eaa873%40group.calendar.google.com/private-a173263723c71a94680b5f4e17bc26b1/basic.ics';
-const PROXY = 'https://api.allorigins.win/raw?url=';
+const ICAL_URL = 'https://script.google.com/macros/s/AKfycbxBxLlpfTMUeQwLh_AIqFVbhSZv5_bS06ICJjTgJz7qW_UG3DD86EMGVW5EqDU3ElffhA/exec';
 const DAYS=['Mån','Tis','Ons','Tor','Fre','Lör','Sön'];
 const MONTHS=['Januari','Februari','Mars','April','Maj','Juni','Juli','Augusti','September','Oktober','November','December'];
 let cur=new Date();cur.setDate(1);
@@ -468,7 +467,7 @@ function selectDay(y,m,d){
 function changeMonth(dir){cur.setMonth(cur.getMonth()+dir);renderCal();}
 
 // Fetch calendar from Google via proxy
-fetch(PROXY+encodeURIComponent(ICAL_URL))
+fetch(ICAL_URL)
   .then(r=>r.text())
   .then(text=>{
     bookedDates=parseIcal(text);
