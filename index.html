@@ -202,7 +202,7 @@ footer{background:#ede8e0;padding:3rem 3rem 1.5rem;border-top:0.5px solid #c4b49
   </div>
   <h1 class="hero-title">Er dag förtjänar<br><em>en plats att minnas</em></h1>
   <p class="hero-sub">– på Långås Loge –</p>
-  <p class="hero-tagline">En genuin loge med rötter, charm och plats för era drömmar.</p>
+  <p class="hero-tagline">En lantlig loge med själ, omgiven av natur och stilla.<br>För er som vill fira på riktigt.</p>
   <div class="hero-divider">
     <div class="hdiv-line"></div>
     <i class="ti ti-leaf hdiv-icon"></i>
@@ -394,7 +394,7 @@ const DAYS=['Mån','Tis','Ons','Tor','Fre','Lör','Sön'];
 const MONTHS=['Januari','Februari','Mars','April','Maj','Juni','Juli','Augusti','September','Oktober','November','December'];
 let cur=new Date();cur.setDate(1);
 let selDate=null;
-let bookedDates={}; // {'2026-6': [4,5,6]}
+let bookedDates={};
 
 function parseIcal(text){
   const result={};
@@ -406,7 +406,6 @@ function parseIcal(text){
     if(!dtstart) continue;
     const start=parseIcalDate(dtstart[1]);
     const end=dtend?parseIcalDate(dtend[1]):new Date(start.getTime()+86400000);
-    // Mark all days in range as booked
     let d=new Date(start);
     while(d<end){
       const key=d.getFullYear()+'-'+(d.getMonth()+1);
@@ -466,14 +465,19 @@ function selectDay(y,m,d){
 
 function changeMonth(dir){cur.setMonth(cur.getMonth()+dir);renderCal();}
 
-// Fetch calendar from Google via proxy
 fetch(ICAL_URL)
-  .then(r=>r.text())
+  .then(r=>{
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    return r.text();
+  })
   .then(text=>{
+    console.log('iCal fetched, length:', text.length, 'preview:', text.substring(0,200));
     bookedDates=parseIcal(text);
+    console.log('Parsed bookedDates:', JSON.stringify(bookedDates));
     renderCal();
   })
-  .catch(()=>renderCal()); // Show calendar even if fetch fails
+  .catch(e=>{console.error('Kalender-fel:', e); renderCal();});
+
 document.getElementById('booking-form').addEventListener('submit', function(e){
   e.preventDefault();
   const form = this;
