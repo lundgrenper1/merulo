@@ -466,14 +466,19 @@ function selectDay(y,m,d){
 
 function changeMonth(dir){cur.setMonth(cur.getMonth()+dir);renderCal();}
 
-// Fetch calendar from Google via proxy
+// Fetch calendar
 fetch(ICAL_URL)
-  .then(r=>r.text())
+  .then(r=>{
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    return r.text();
+  })
   .then(text=>{
+    console.log('iCal fetched, length:', text.length, 'preview:', text.substring(0,100));
     bookedDates=parseIcal(text);
+    console.log('Parsed bookedDates:', JSON.stringify(bookedDates));
     renderCal();
   })
-  .catch(()=>renderCal()); // Show calendar even if fetch fails
+  .catch(e=>{console.error('Kalender-fel:', e); renderCal();});
 document.getElementById('booking-form').addEventListener('submit', function(e){
   e.preventDefault();
   const form = this;
