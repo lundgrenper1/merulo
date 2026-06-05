@@ -202,7 +202,7 @@ footer{background:#ede8e0;padding:3rem 3rem 1.5rem;border-top:0.5px solid #c4b49
   </div>
   <h1 class="hero-title">Er dag förtjänar<br><em>en plats att minnas</em></h1>
   <p class="hero-sub">– på Långås Loge –</p>
-  <p class="hero-tagline">En lantlig loge med själ, omgiven av natur och stilla.<br>För er som vill fira på riktigt.</p>
+  <p class="hero-tagline">En genuin loge med rötter, charm och plats för era drömmar.</p>
   <div class="hero-divider">
     <div class="hdiv-line"></div>
     <i class="ti ti-leaf hdiv-icon"></i>
@@ -389,7 +389,8 @@ footer{background:#ede8e0;padding:3rem 3rem 1.5rem;border-top:0.5px solid #c4b49
 </footer>
 
 <script>
-const ICAL_URL = 'https://script.google.com/macros/s/AKfycbxBxLlpfTMUeQwLh_AIqFVbhSZv5_bS06ICJjTgJz7qW_UG3DD86EMGVW5EqDU3ElffhA/exec';
+const ICAL_URL = 'https://calendar.google.com/calendar/ical/2280143605a1050a416ce36639e00851276d290e795011c6fccc917013eaa873%40group.calendar.google.com/private-a173263723c71a94680b5f4e17bc26b1/basic.ics';
+const PROXY = 'https://api.allorigins.win/raw?url=';
 const DAYS=['Mån','Tis','Ons','Tor','Fre','Lör','Sön'];
 const MONTHS=['Januari','Februari','Mars','April','Maj','Juni','Juli','Augusti','September','Oktober','November','December'];
 let cur=new Date();cur.setDate(1);
@@ -467,7 +468,7 @@ function selectDay(y,m,d){
 function changeMonth(dir){cur.setMonth(cur.getMonth()+dir);renderCal();}
 
 // Fetch calendar from Google via proxy
-fetch(ICAL_URL)
+fetch(PROXY+encodeURIComponent(ICAL_URL))
   .then(r=>r.text())
   .then(text=>{
     bookedDates=parseIcal(text);
