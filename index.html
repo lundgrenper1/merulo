@@ -30,6 +30,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 2
 .orn-text{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#7e846f;}
 .hero-logo{margin-bottom:2rem;}
 .hero-logo img{width:320px;max-width:78%;object-fit:contain;}
+.hero-mobile-logo{display:none;}
 .hero-title{font-family:'Cormorant Garamond',serif;font-size:3.6rem;font-weight:300;color:#2f332a;line-height:1.1;margin-bottom:.6rem;}
 .hero-title em{font-style:italic;}
 .hero-sub{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:300;font-style:italic;color:#7e846f;margin-bottom:.5rem;}
@@ -167,8 +168,9 @@ footer{background:#e7ece0;padding:3rem 3rem 1.5rem;border-top:0.5px solid #a7b39
   nav{padding:1rem 1.5rem;}
   .nav-links{gap:1rem;}
   .hero-title{font-size:2.4rem;}
-  .hero{min-height:80vh;}
-  .hero-bg{background-size:min(300px,70%);background-position:center 30%;}
+  .hero-bg{background-image:none;}
+  .hero{min-height:auto;display:block;padding-top:2.5rem;}
+  .hero-mobile-logo{display:block;width:min(280px,72%);margin:1.5rem auto 1.8rem;}
   .two-col{grid-template-columns:1fr;gap:2rem;}
   .about-intro{grid-template-columns:1fr;gap:1.5rem;}
   .about-intro img{position:static;max-width:400px;margin:0 auto;}
@@ -200,6 +202,7 @@ footer{background:#e7ece0;padding:3rem 3rem 1.5rem;border-top:0.5px solid #a7b39
     <span class="orn-text">Långås Loge · Falkenberg</span>
     <div class="orn-line"></div>
   </div>
+  <img class="hero-mobile-logo" src="Hero-bakgrund2.png" alt="Merulo">
   <div class="hero-bottom">
     <h1 class="hero-title">Er dag förtjänar<br><em>en plats att minnas</em></h1>
     <p class="hero-sub">– på Långås Loge –</p>
