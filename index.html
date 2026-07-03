@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- v7 -->
+<!-- v8 -->
 <html lang="sv">
 <head>
 <meta charset="UTF-8">
@@ -154,7 +154,7 @@ section{padding:5rem 2rem;}
 .partners-note em{color:#2f332a;}
 
 /* FOOTER */
-footer{background:#f5f4ef;padding:3rem 3rem 1.5rem;border-top:0.5px solid #a7b394;}
+footer{background:#e7ece0;padding:3rem 3rem 1.5rem;border-top:0.5px solid #a7b394;}
 .footer-inner{max-width:740px;margin:0 auto;}
 .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:2.5rem;margin-bottom:2.5rem;}
 .footer-logo{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;color:#2f332a;letter-spacing:.08em;margin-bottom:.4rem;}
@@ -200,10 +200,10 @@ footer{background:#f5f4ef;padding:3rem 3rem 1.5rem;border-top:0.5px solid #a7b39
   <a href="#" class="nav-logo"><img src="logga.jpg" alt="Merulo på Långås Loge"></a>
   <button class="nav-toggle" aria-label="Öppna meny" onclick="document.querySelector('.nav-links').classList.toggle('open')"><i class="ti ti-menu-2"></i></button>
   <div class="nav-links">
-    <a href="#om">Om oss</a>
     <a href="#tjanster">Tjänster</a>
     <a href="#safunkar">Så funkar det</a>
     <a href="#partners">Partners</a>
+    <a href="#om">Om oss</a>
     <a href="#bokning" class="nav-book">Boka</a>
   </div>
 </nav>
@@ -240,34 +240,6 @@ footer{background:#f5f4ef;padding:3rem 3rem 1.5rem;border-top:0.5px solid #a7b39
   <div class="feat"><i class="ti ti-map-pin feat-icon"></i><span class="feat-text">Falkenberg, Halland</span></div>
   <div class="feat"><i class="ti ti-calendar feat-icon"></i><span class="feat-text">Maj–September</span></div>
 </div>
-
-<!-- OM OSS -->
-<section id="om">
-  <div class="section-inner">
-    <p class="tag">Människorna bakom Merulo</p>
-    <h2 class="section-title">Vi vet hur det känns<br><em>att leta efter det där stället</em></h2>
-    <div class="divider"></div>
-    <div class="about-intro">
-      <img src="maria-per.jpg.jpeg" alt="Maria och Per">
-      <div class="about-intro-text">
-        <p>Vi är Maria och Per. Till vardags jobbar vi med barn och ungdomar i skolan, men vi har alltid gillat att <em>skapa minnesvärda upplevelser</em> och fixa fester som folk pratar om långt efteråt.</p>
-        <p>När vi själva letade efter en festlokal insåg vi att något saknades: en plats som kombinerar den <em>äkta lantliga idyllen</em> med allt det praktiska redan på plats. Den platsen ville vi skapa.</p>
-        <div class="quote">
-          <p>"Maria har alltid haft den kreativa sidan med styling, inredning och en förmåga att skapa den där magiska känslan. Kombinationen av att erbjuda något vi själva saknat, det kreativa skapandet och glädjen i att möta nya människor är det som driver oss."</p>
-        </div>
-        <p>Vi brinner för att <em>skapa stunder som människor bär med sig länge.</em></p>
-      </div>
-    </div>
-    <div class="full-text">
-      <p>Vi tror på <em>frihet och personlighet</em>. Hos oss får ni bestämma själva. Ert DIY-koncept, era val och er dag. Samtidigt hjälper vi gärna till att förmedla kontakten med <em>det lokala näringslivets bästa aktörer</em>, allt från catering och blommor till musik och foto. Falkenbergs fantastiska lokala företagare finns nära, och vi vet vilka de är.</p>
-    </div>
-    <div class="sig">
-      <div class="sig-line"></div>
-      <p>Maria &amp; Per</p>
-      <span>Merulo på Långås Loge</span>
-    </div>
-  </div>
-</section>
 
 <!-- TJÄNSTER -->
 <section id="tjanster">
@@ -388,6 +360,34 @@ footer{background:#f5f4ef;padding:3rem 3rem 1.5rem;border-top:0.5px solid #a7b39
     <p style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:300;font-style:italic;color:#5e6353;text-align:center;margin-bottom:.5rem;">– Falkenbergs bästa, handplockade för er –</p>
     <div class="divider"></div>
     <p class="partners-note">Genom oss får ni tillgång till det bästa från <em>Falkenbergs lokala näringsliv</em> – catering, foto, musik, blommor och mer. Vi vet vilka som levererar, och förmedlar kontakten med glädje.</p>
+  </div>
+</section>
+
+<!-- OM OSS -->
+<section id="om">
+  <div class="section-inner">
+    <p class="tag">Människorna bakom Merulo</p>
+    <h2 class="section-title">Vi vet hur det känns<br><em>att leta efter det där stället</em></h2>
+    <div class="divider"></div>
+    <div class="about-intro">
+      <img src="maria-per.jpg.jpeg" alt="Maria och Per">
+      <div class="about-intro-text">
+        <p>Vi är Maria och Per. Till vardags jobbar vi med barn och ungdomar i skolan, men vi har alltid gillat att <em>skapa minnesvärda upplevelser</em> och fixa fester som folk pratar om långt efteråt.</p>
+        <p>När vi själva letade efter en festlokal insåg vi att något saknades: en plats som kombinerar den <em>äkta lantliga idyllen</em> med allt det praktiska redan på plats. Den platsen ville vi skapa.</p>
+        <div class="quote">
+          <p>"Maria har alltid haft den kreativa sidan med styling, inredning och en förmåga att skapa den där magiska känslan. Kombinationen av att erbjuda något vi själva saknat, det kreativa skapandet och glädjen i att möta nya människor är det som driver oss."</p>
+        </div>
+        <p>Vi brinner för att <em>skapa stunder som människor bär med sig länge.</em></p>
+      </div>
+    </div>
+    <div class="full-text">
+      <p>Vi tror på <em>frihet och personlighet</em>. Hos oss får ni bestämma själva. Ert DIY-koncept, era val och er dag. Samtidigt hjälper vi gärna till att förmedla kontakten med <em>det lokala näringslivets bästa aktörer</em>, allt från catering och blommor till musik och foto. Falkenbergs fantastiska lokala företagare finns nära, och vi vet vilka de är.</p>
+    </div>
+    <div class="sig">
+      <div class="sig-line"></div>
+      <p>Maria &amp; Per</p>
+      <span>Merulo på Långås Loge</span>
+    </div>
   </div>
 </section>
 
