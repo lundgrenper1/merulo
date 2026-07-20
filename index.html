@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- v12 -->
+<!-- v13 -->
 <html lang="sv">
 <head>
 <meta charset="UTF-8">
@@ -24,23 +24,17 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 2
 .nav-book:hover{background:#7599c7 !important;}
 .nav-toggle{display:none;background:none;border:none;cursor:pointer;color:#2f332a;font-size:26px;line-height:1;padding:0;}
 
-/* HERO */
-.hero-bg{background:#f5f4ef url('Hero-bakgrund2.png') center 40%/min(760px,90%) no-repeat;}
-.hero{min-height:90vh;display:flex;flex-direction:column;justify-content:space-between;align-items:center;text-align:center;max-width:860px;margin:0 auto;padding:3rem 2rem 4rem;}
-.hero-ornament{display:flex;align-items:center;gap:1rem;justify-content:center;margin-bottom:2rem;}
-.orn-line{width:48px;height:0.5px;background:#a7b394;}
-.orn-text{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#5e6353;}
-.hero-logo{margin-bottom:2rem;}
-.hero-logo img{width:320px;max-width:78%;object-fit:contain;}
-.hero-mobile-logo{display:none;}
-.hero-title{font-family:'Cormorant Garamond',serif;font-size:3.6rem;font-weight:300;color:#2f332a;line-height:1.1;margin-bottom:.6rem;}
-.hero-title em{font-style:italic;}
-.hero-sub{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:300;font-style:italic;color:#5e6353;margin-bottom:.5rem;}
-.hero-tagline{font-size:13px;color:#6d7361;font-weight:300;letter-spacing:.08em;margin-bottom:2.5rem;line-height:1.8;}
-.hero-divider{display:flex;align-items:center;gap:1rem;justify-content:center;margin-bottom:2.5rem;}
-.hdiv-line{width:40px;height:0.5px;background:#a7b394;}
-.hdiv-icon{color:#a7b394;font-size:16px;}
-.btn-wrap{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+/* HERO CAROUSEL */
+.hero-carousel{position:relative;width:100%;height:min(88vh,760px);overflow:hidden;background:#2f332a;}
+.hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.2s ease;}
+.hero-slide.active{opacity:1;}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,28,22,.12),rgba(28,28,22,.42));display:flex;align-items:center;justify-content:center;padding:2rem;z-index:2;}
+.hero-overlay .btn-wrap{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+.hero-overlay .btn-secondary{color:#fff;border-color:rgba(255,255,255,.85);background:rgba(255,255,255,.06);}
+.hero-overlay .btn-secondary:hover{background:rgba(255,255,255,.18);}
+.hero-dots{position:absolute;bottom:1.4rem;left:0;right:0;display:flex;gap:.6rem;justify-content:center;z-index:3;}
+.hero-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.55);border:none;cursor:pointer;padding:0;transition:background .3s;}
+.hero-dot.active{background:#fff;}
 .btn-primary{background:#8caad6;color:#fff;border:none;padding:.85rem 2.2rem;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;border-radius:2px;text-decoration:none;display:inline-block;}
 .btn-primary:hover{background:#7599c7;}
 .btn-secondary{background:none;color:#2f332a;border:0.5px solid #a7b394;padding:.85rem 2.2rem;font-family:'Jost',sans-serif;font-size:12px;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;border-radius:2px;text-decoration:none;display:inline-block;}
@@ -178,10 +172,7 @@ footer{background:#f5f4ef;padding:3rem 3rem 1.5rem;border-top:0.5px solid #a7b39
   .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#f5f4ef;border-bottom:0.5px solid #dcded2;flex-direction:column;align-items:flex-start;gap:1.3rem;padding:1.4rem 1.5rem;}
   .nav-links.open{display:flex;}
   .nav-book{align-self:flex-start;}
-  .hero-title{font-size:2.4rem;}
-  .hero-bg{background-image:none;}
-  .hero{min-height:auto;display:block;padding-top:2.5rem;}
-  .hero-mobile-logo{display:block;width:min(280px,72%);margin:1.5rem auto 1.8rem;}
+  .hero-carousel{height:min(64vh,480px);}
   .two-col{grid-template-columns:1fr;gap:2rem;}
   .about-intro{grid-template-columns:1fr;gap:1.5rem;}
   .about-intro img{position:static;max-width:400px;margin:0 auto;}
@@ -209,29 +200,18 @@ footer{background:#f5f4ef;padding:3rem 3rem 1.5rem;border-top:0.5px solid #a7b39
 </nav>
 
 <!-- HERO -->
-<div class="hero-bg">
-<div class="hero">
-  <div class="hero-ornament">
-    <div class="orn-line"></div>
-    <span class="orn-text">Långås Loge · Falkenberg</span>
-    <div class="orn-line"></div>
-  </div>
-  <img class="hero-mobile-logo" src="Hero-bakgrund2.png" alt="Merulo">
-  <div class="hero-bottom">
-    <h1 class="hero-title">Er dag förtjänar<br><em>en plats att minnas</em></h1>
-    <p class="hero-sub">– på Långås Loge –</p>
-    <div class="hero-divider">
-      <div class="hdiv-line"></div>
-      <i class="ti ti-leaf hdiv-icon"></i>
-      <div class="hdiv-line"></div>
-    </div>
+<div class="hero-carousel" id="hero-carousel">
+  <div class="hero-slide active" style="background-image:url('hero1.jpg%20%E2%80%93%20r%C3%B6da%20logen%20med%20vagnen%20(utifr%C3%A5n).jpeg')"></div>
+  <div class="hero-slide" style="background-image:url('hero2.jpg%20%E2%80%93%20insidan%20med%20vimplar%20%26%20cocktailbord.jpeg')"></div>
+  <div class="hero-slide" style="background-image:url('hero3.jpg%20%E2%80%93%20L%C3%A5ng%C3%A5s%20Loge-skylten%20i%20%C3%A4ngen.jpeg')"></div>
+  <div class="hero-slide" style="background-image:url('hero4.jpg%20%E2%80%93%20insidan%20dukad%20f%C3%B6r%20middag%20med%20ljuskronor.jpeg')"></div>
+  <div class="hero-overlay">
     <div class="btn-wrap">
       <a href="#bokning" class="btn-primary">Boka er dag</a>
       <a href="https://langas-loge.se" target="_blank" class="btn-secondary">Utforska logen</a>
     </div>
-    <p style="font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:300;font-style:italic;color:#5e6353;margin-top:1rem;">Utforska logen – kommer inom kort</p>
   </div>
-</div>
+  <div class="hero-dots" id="hero-dots"></div>
 </div>
 
 <div class="hero-footer">
@@ -532,6 +512,32 @@ document.getElementById('booking-form').addEventListener('submit', function(e){
   }).catch(() => alert('Något gick fel, försök igen eller kontakta oss direkt.'));
 });
 document.querySelectorAll('.nav-links a').forEach(function(a){a.addEventListener('click',function(){document.querySelector('.nav-links').classList.remove('open');});});
+
+(function(){
+  var slides=document.querySelectorAll('.hero-slide');
+  var dotsWrap=document.getElementById('hero-dots');
+  if(!slides.length||!dotsWrap) return;
+  var idx=0, timer;
+  for(var i=0;i<slides.length;i++){
+    (function(i){
+      var b=document.createElement('button');
+      b.className='hero-dot'+(i===0?' active':'');
+      b.setAttribute('aria-label','Bild '+(i+1));
+      b.addEventListener('click',function(){go(i);});
+      dotsWrap.appendChild(b);
+    })(i);
+  }
+  var dots=dotsWrap.querySelectorAll('.hero-dot');
+  function go(i){
+    slides[idx].classList.remove('active'); dots[idx].classList.remove('active');
+    idx=i;
+    slides[idx].classList.add('active'); dots[idx].classList.add('active');
+    clearInterval(timer); timer=setInterval(next,5000);
+  }
+  function next(){ go((idx+1)%slides.length); }
+  timer=setInterval(next,5000);
+})();
+
 renderCal();
 </script>
 </body>
