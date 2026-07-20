@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- v13 -->
+<!-- v14 -->
 <html lang="sv">
 <head>
 <meta charset="UTF-8">
@@ -28,7 +28,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 2
 .hero-carousel{position:relative;width:100%;height:min(88vh,760px);overflow:hidden;background:#2f332a;}
 .hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.2s ease;}
 .hero-slide.active{opacity:1;}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,28,22,.12),rgba(28,28,22,.42));display:flex;align-items:center;justify-content:center;padding:2rem;z-index:2;}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,28,22,.12),rgba(28,28,22,.42));display:flex;align-items:flex-end;justify-content:flex-end;padding:2rem 3rem 3.5rem;z-index:2;}
 .hero-overlay .btn-wrap{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
 .hero-overlay .btn-secondary{color:#fff;border-color:rgba(255,255,255,.85);background:rgba(255,255,255,.06);}
 .hero-overlay .btn-secondary:hover{background:rgba(255,255,255,.18);}
@@ -173,6 +173,7 @@ footer{background:#f5f4ef;padding:3rem 3rem 1.5rem;border-top:0.5px solid #a7b39
   .nav-links.open{display:flex;}
   .nav-book{align-self:flex-start;}
   .hero-carousel{height:min(64vh,480px);}
+  .hero-overlay{align-items:center;justify-content:center;padding:2rem;}
   .two-col{grid-template-columns:1fr;gap:2rem;}
   .about-intro{grid-template-columns:1fr;gap:1.5rem;}
   .about-intro img{position:static;max-width:400px;margin:0 auto;}
