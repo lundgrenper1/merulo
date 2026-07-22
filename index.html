@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- v23 -->
+<!-- v24 -->
 <html lang="sv">
 <head>
 <meta charset="UTF-8">
@@ -128,6 +128,34 @@ section{padding:5rem 2rem;}
 .step-desc{font-size:13px;color:#5e6353;font-weight:300;line-height:1.7;}
 .step-desc em{color:#2f332a;font-style:normal;font-weight:400;}
 
+/* TIDSLINJE */
+#tidslinje{background:#f5f4ef;}
+.timeline{max-width:1120px;margin:2.8rem auto 0;padding:0 1rem;}
+.tl-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;}
+.tl-step{display:flex;flex-direction:column;align-items:center;text-align:center;position:relative;}
+.tl-day{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#6d7361;margin-bottom:1rem;}
+.tl-node{position:relative;width:100%;display:flex;justify-content:center;margin-bottom:1.1rem;}
+.tl-circle{width:64px;height:64px;border-radius:50%;background:#eef1e9;border:0.5px solid #dfe4d6;display:flex;align-items:center;justify-content:center;position:relative;z-index:2;}
+.tl-circle i{font-size:26px;color:#8a9678;}
+.tl-node::after{content:'';position:absolute;top:50%;left:50%;width:100%;height:1px;background:#d3d8ca;z-index:1;}
+.tl-node::before{content:'';position:absolute;top:50%;left:100%;width:6px;height:6px;border-radius:50%;background:#b7c0a5;transform:translate(-50%,-50%);z-index:3;}
+.tl-step:last-child .tl-node::after,.tl-step:last-child .tl-node::before{display:none;}
+.tl-title{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:400;color:#2f332a;margin-bottom:.5rem;}
+.tl-desc{font-size:12px;line-height:1.65;color:#5e6353;font-weight:300;max-width:175px;}
+.tl-clock{display:flex;align-items:center;justify-content:center;gap:.7rem;background:#eef1e9;border:0.5px solid #dfe4d6;border-radius:8px;padding:1.1rem 1.4rem;margin:2.8rem auto 0;max-width:540px;}
+.tl-clock i{font-size:20px;color:#8a9678;}
+.tl-clock p{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:#2f332a;}
+.tl-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:0;background:#eef1e9;border:0.5px solid #dfe4d6;border-radius:8px;margin:1.5rem auto 0;max-width:1000px;overflow:hidden;}
+.tl-card{display:flex;gap:1rem;align-items:flex-start;padding:1.6rem 1.5rem;}
+.tl-card+.tl-card{border-left:0.5px solid #dfe4d6;}
+.tl-card-ic{flex-shrink:0;width:56px;height:56px;border-radius:50%;background:#f5f4ef;display:flex;align-items:center;justify-content:center;}
+.tl-card-ic i{font-size:24px;color:#8a9678;}
+.tl-card h4{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:400;color:#2f332a;margin-bottom:.35rem;}
+.tl-card p{font-size:12px;line-height:1.65;color:#5e6353;font-weight:300;}
+.tl-close{text-align:center;background:#eef1e9;border:0.5px solid #dfe4d6;border-radius:8px;padding:2.2rem 2rem;margin:1.5rem auto 0;max-width:1000px;}
+.tl-close .c-big{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;color:#2f332a;line-height:1.4;margin-bottom:.5rem;}
+.tl-close .c-small{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#6d7361;}
+
 /* BOKNING */
 #bokning{background:#f5f4ef;}
 .book-subtitle{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:300;font-style:italic;color:#5e6353;text-align:center;margin-bottom:.5rem;}
@@ -205,6 +233,11 @@ footer{background:#f5f4ef;padding:3rem 3rem 1.5rem;border-top:0.5px solid #a7b39
   .about-intro{grid-template-columns:1fr;gap:1.5rem;}
   .about-intro img{position:static;max-width:400px;margin:0 auto;}
   .steps{grid-template-columns:1fr;}
+  .tl-steps{grid-template-columns:1fr;gap:2rem;}
+  .tl-node::after,.tl-node::before{display:none;}
+  .tl-desc{max-width:none;}
+  .tl-cards{grid-template-columns:1fr;}
+  .tl-card+.tl-card{border-left:0;border-top:0.5px solid #dfe4d6;}
   .book-grid{grid-template-columns:1fr;}
   .form-row{grid-template-columns:1fr;}
   section{padding:3rem 1.5rem;}
@@ -295,6 +328,35 @@ footer{background:#f5f4ef;padding:3rem 3rem 1.5rem;border-top:0.5px solid #a7b39
     </div>
     <div style="text-align:center;">
       <a href="#bokning" class="btn-primary">Boka er dag</a>
+    </div>
+  </div>
+</section>
+
+<!-- TIDSLINJE -->
+<section id="tidslinje">
+  <div class="section-inner">
+    <p class="tag">En helg i lugn och ro</p>
+    <h2 class="section-title">Gott om tid<br><em>&ndash; fr&aring;n b&ouml;rjan till slut</em></h2>
+    <div class="divider"></div>
+    <p class="tjanster-lead">Tillg&aring;ng till L&aring;ng&aring;s Loge fr&aring;n torsdag till m&aring;ndag ger er utrymme att<br>f&ouml;rbereda, fira och avsluta utan stress.</p>
+  </div>
+  <div class="timeline">
+    <div class="tl-steps">
+      <div class="tl-step"><p class="tl-day">Torsdag</p><div class="tl-node"><div class="tl-circle"><i class="ti ti-key"></i></div></div><p class="tl-title">Tillg&aring;ng</p><p class="tl-desc">Ni f&aring;r tillg&aring;ng till logen och kan b&ouml;rja i er egen takt.</p></div>
+      <div class="tl-step"><p class="tl-day">Fredag</p><div class="tl-node"><div class="tl-circle"><i class="ti ti-flower"></i></div></div><p class="tl-title">F&ouml;rberedelse</p><p class="tl-desc">Dekorera, duka och f&ouml;rbered allt inf&ouml;r er dag.</p></div>
+      <div class="tl-step"><p class="tl-day">L&ouml;rdag</p><div class="tl-node"><div class="tl-circle"><i class="ti ti-heart"></i></div></div><p class="tl-title">Er dag</p><p class="tl-desc">Njut av dagen och kv&auml;llen med era n&auml;ra och k&auml;ra.</p></div>
+      <div class="tl-step"><p class="tl-day">S&ouml;ndag</p><div class="tl-node"><div class="tl-circle"><i class="ti ti-sun"></i></div></div><p class="tl-title">Avsluta i lugn takt</p><p class="tl-desc">Plocka undan och ta farv&auml;l i lugn och ro &mdash; utan stress och tidspress.</p></div>
+      <div class="tl-step"><p class="tl-day">M&aring;ndag</p><div class="tl-node"><div class="tl-circle"><i class="ti ti-home"></i></div></div><p class="tl-title">&Aring;terst&auml;llning &amp; &aring;terl&auml;mning</p><p class="tl-desc">&Aring;terst&auml;ll lokalen och l&auml;mna tillbaka enligt &ouml;verenskommelse.</p></div>
+    </div>
+    <div class="tl-clock"><i class="ti ti-clock"></i><p>Festligheterna avslutas senast 02.00.</p></div>
+    <div class="tl-cards">
+      <div class="tl-card"><div class="tl-card-ic"><i class="ti ti-brush"></i></div><div><h4>St&auml;d</h4><p>Ni st&auml;dar sj&auml;lva enligt st&auml;dlista som ing&aring;r. Vill ni boka st&auml;d hj&auml;lper v&aring;ra samarbetspartners g&auml;rna till.</p></div></div>
+      <div class="tl-card"><div class="tl-card-ic"><i class="ti ti-tools-kitchen-2"></i></div><div><h4>Diskutrymme</h4><p>Diskutrymme med diskmaskin finns. Grovdisk g&ouml;r ni &ndash; slutdisk sk&ouml;ter vi.</p></div></div>
+      <div class="tl-card"><div class="tl-card-ic"><i class="ti ti-wash-machine"></i></div><div><h4>Textilier</h4><p>Dukar och &ouml;vriga textilier tar vi hand om och tv&auml;ttar efter ert bes&ouml;k.</p></div></div>
+    </div>
+    <div class="tl-close">
+      <p class="c-big">En helg i lugn och ro ger er friheten att skapa minnen f&ouml;r livet.</p>
+      <p class="c-small">Mer tid &middot; Mindre stress &middot; Fler minnen</p>
     </div>
   </div>
 </section>
