@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- v16 -->
+<!-- v18 -->
 <html lang="sv">
 <head>
 <meta charset="UTF-8">
@@ -28,7 +28,14 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 2
 .hero-carousel{position:relative;width:100%;height:min(88vh,760px);overflow:hidden;background:#2f332a;}
 .hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.2s ease;}
 .hero-slide.active{opacity:1;}
-.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,28,22,.12),rgba(28,28,22,.42));display:flex;align-items:flex-end;justify-content:flex-end;padding:2rem 3rem 3.5rem;z-index:2;}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(24,24,18,.42),rgba(24,24,18,.55));display:flex;align-items:center;justify-content:center;padding:2rem;z-index:2;}
+.hero-content{max-width:780px;width:100%;text-align:center;display:flex;flex-direction:column;align-items:center;gap:1.5rem;}
+.hero-headline{font-family:'Cormorant Garamond',serif;font-size:3.6rem;font-weight:400;color:#fff;line-height:1.12;text-shadow:0 2px 20px rgba(0,0,0,.4);}
+.hero-orn{display:flex;align-items:center;gap:.9rem;color:#e7dcc7;}
+.hero-orn .orn-l{width:56px;height:1px;background:rgba(255,255,255,.6);}
+.hero-orn i{font-size:20px;}
+.hero-cats{font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#fff;line-height:2;text-shadow:0 1px 12px rgba(0,0,0,.45);}
+.hero-content .btn-wrap{margin-top:.4rem;}
 .hero-overlay .btn-wrap{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
 .hero-overlay .btn-secondary{color:#fff;border-color:rgba(255,255,255,.85);background:rgba(255,255,255,.06);}
 .hero-overlay .btn-secondary:hover{background:rgba(255,255,255,.18);}
@@ -180,7 +187,8 @@ footer{background:#f5f4ef;padding:3rem 3rem 1.5rem;border-top:0.5px solid #a7b39
   .nav-links.open{display:flex;}
   .nav-book{align-self:flex-start;}
   .hero-carousel{height:min(64vh,480px);}
-  .hero-overlay{align-items:center;justify-content:center;padding:2rem;}
+  .hero-headline{font-size:2.4rem;}
+  .hero-cats{font-size:12px;}
   .intro-tagline{font-size:1.9rem;}
   .two-col{grid-template-columns:1fr;gap:2rem;}
   .about-intro{grid-template-columns:1fr;gap:1.5rem;}
@@ -215,9 +223,14 @@ footer{background:#f5f4ef;padding:3rem 3rem 1.5rem;border-top:0.5px solid #a7b39
   <div class="hero-slide" style="background-image:url('hero3.jpg%20%E2%80%93%20L%C3%A5ng%C3%A5s%20Loge-skylten%20i%20%C3%A4ngen.jpeg')"></div>
   <div class="hero-slide" style="background-image:url('hero4.jpg%20%E2%80%93%20insidan%20dukad%20f%C3%B6r%20middag%20med%20ljuskronor.jpeg')"></div>
   <div class="hero-overlay">
-    <div class="btn-wrap">
-      <a href="#bokning" class="btn-primary">Boka er dag</a>
-      <a href="https://langasloge.se" target="_blank" class="btn-secondary">Utforska logen</a>
+    <div class="hero-content">
+      <h1 class="hero-headline">En plats för<br>livets stora stunder.</h1>
+      <div class="hero-orn"><span class="orn-l"></span><i class="ti ti-leaf"></i><span class="orn-l"></span></div>
+      <p class="hero-cats">Bröllop • Jubileum • Födelsedagar<br>Företagsevent • Dop &amp; mer</p>
+      <div class="btn-wrap">
+        <a href="#bokning" class="btn-primary">Boka er dag</a>
+        <a href="https://langasloge.se" target="_blank" class="btn-secondary">Utforska logen</a>
+      </div>
     </div>
   </div>
   <div class="hero-dots" id="hero-dots"></div>
