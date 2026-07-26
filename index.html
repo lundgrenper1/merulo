@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- v26 -->
+<!-- v27 -->
 <html lang="sv">
 <head>
 <meta charset="UTF-8">
@@ -81,7 +81,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 2
 section{padding:5rem 2rem;scroll-margin-top:100px;}
 .section-inner{max-width:740px;margin:0 auto;}
 .tag{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#5e6353;text-align:center;margin-bottom:.6rem;}
-.section-title{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:300;color:#2f332a;text-align:center;line-height:1.15;margin-bottom:.8rem;}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:300;color:#2f332a;text-align:center;line-height:1.15;margin-bottom:.8rem;overflow-wrap:break-word;}
 .section-title em{font-style:italic;}
 .divider{width:48px;height:0.5px;background:#a7b394;margin:1.2rem auto 2.5rem;}
 
@@ -249,6 +249,9 @@ footer{background:#f5f4ef;padding:3rem 3rem 1.5rem;border-top:0.5px solid #a7b39
   .tl-steps{grid-template-columns:1fr;gap:2rem;}
   .tl-node::after,.tl-node::before{display:none;}
   .tl-desc{max-width:none;}
+  .tl-clock{padding:.95rem .8rem;gap:.45rem;}
+  .tl-clock i{font-size:16px;}
+  .tl-clock p{font-size:clamp(.78rem,3.9vw,1.2rem);white-space:nowrap;}
   .tl-cards{grid-template-columns:1fr;}
   .tl-card+.tl-card{border-left:0;border-top:0.5px solid #dfe4d6;}
   .book-grid{grid-template-columns:1fr;}
