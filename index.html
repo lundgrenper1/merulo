@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- v38 -->
+<!-- v40 -->
 <html lang="sv">
 <head>
 <meta charset="UTF-8">
@@ -46,7 +46,9 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 2
 
 /* HERO CAROUSEL */
 .hero-carousel{position:relative;width:100%;height:min(88vh,760px);overflow:hidden;background:#2f332a;}
-.hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.2s ease;}
+.hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1.2s ease;}
+.hero-slide picture{display:block;width:100%;height:100%;}
+.hero-slide img{width:100%;height:100%;object-fit:cover;display:block;}
 .hero-slide.active{opacity:1;}
 .hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(24,24,18,.42),rgba(24,24,18,.55));display:flex;align-items:center;justify-content:center;padding:2rem;z-index:2;}
 .hero-content{max-width:780px;width:100%;text-align:center;display:flex;flex-direction:column;align-items:center;gap:1.5rem;}
@@ -73,6 +75,7 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:1rem 2
 
 /* INTRO BAND */
 .intro-band{background:#f5f4ef;text-align:center;padding:4rem 2rem 3.5rem;}
+.intro-band picture{display:block;}
 .intro-logo{height:120px;width:auto;object-fit:contain;display:block;margin:0 auto 1.4rem;}
 .intro-tagline{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:300;color:#2f332a;line-height:1.2;margin-bottom:.6rem;}
 .intro-tagline em{font-style:italic;}
@@ -101,7 +104,8 @@ section{padding:5rem 2rem;scroll-margin-top:100px;}
 .img-placeholder span{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#6d7361;}
 .about-photo{width:100%;max-width:400px;border-radius:8px;display:block;margin:2.5rem auto;object-fit:cover;}
 .about-intro{display:grid;grid-template-columns:.85fr 1fr;gap:3rem;align-items:start;margin-bottom:2.5rem;}
-.about-intro img{width:100%;border-radius:8px;object-fit:cover;display:block;position:sticky;top:90px;}
+.about-intro picture{display:block;position:sticky;top:90px;}
+.about-intro img{width:100%;height:auto;border-radius:8px;display:block;}
 .about-intro-text p{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:300;color:#33362c;line-height:1.85;margin-bottom:1.2rem;}
 .about-intro-text p:last-child{margin-bottom:0;}
 .about-intro-text em{font-style:italic;color:#2f332a;}
@@ -244,7 +248,7 @@ footer{background:#f5f4ef;padding:3rem 3rem 1.5rem;border-top:0.5px solid #a7b39
   .intro-tagline{font-size:1.9rem;}
   .two-col{grid-template-columns:1fr;gap:2rem;}
   .about-intro{grid-template-columns:1fr;gap:1.5rem;}
-  .about-intro img{position:static;max-width:400px;margin:0 auto;}
+  .about-intro picture{position:static;max-width:400px;margin:0 auto;}
   .steps{grid-template-columns:1fr;}
   .section-title{font-size:clamp(1.45rem,7.2vw,2.2rem);}
   .hero-footer{padding:1.5rem 1.5rem;gap:.9rem 2rem;}
@@ -347,10 +351,10 @@ footer{background:#f5f4ef;padding:3rem 3rem 1.5rem;border-top:0.5px solid #a7b39
 
 <!-- HERO -->
 <div class="hero-carousel" id="hero-carousel">
-  <div class="hero-slide active" style="background-image:url('hero1.jpg%20%E2%80%93%20r%C3%B6da%20logen%20med%20vagnen%20(utifr%C3%A5n).jpeg')"></div>
-  <div class="hero-slide" style="background-image:url('hero2.jpg%20%E2%80%93%20insidan%20med%20vimplar%20%26%20cocktailbord.jpeg')"></div>
-  <div class="hero-slide" style="background-image:url('hero3.jpg%20%E2%80%93%20L%C3%A5ng%C3%A5s%20Loge-skylten%20i%20%C3%A4ngen.jpeg')"></div>
-  <div class="hero-slide" style="background-image:url('hero4.jpg%20%E2%80%93%20insidan%20dukad%20f%C3%B6r%20middag%20med%20ljuskronor.jpeg')"></div>
+  <div class="hero-slide active"><picture><source type="image/webp" srcset="hero1-900.webp 900w, hero1-1538.webp 1538w" sizes="100vw"><img src="hero1.jpg%20%E2%80%93%20r%C3%B6da%20logen%20med%20vagnen%20(utifr%C3%A5n).jpeg" alt="Långås Loge – den röda logen med hästvagnen utanför, festlokal på landet utanför Falkenberg i Halland" width="1538" height="1022" fetchpriority="high" decoding="async"></picture></div>
+  <div class="hero-slide"><picture><source type="image/webp" srcset="hero2-900.webp 900w, hero2-1538.webp 1538w" sizes="100vw"><img src="hero2.jpg%20%E2%80%93%20insidan%20med%20vimplar%20%26%20cocktailbord.jpeg" alt="Insidan av Långås Loge dekorerad med vimplar och cocktailbord inför fest" width="1537" height="1023" loading="lazy" fetchpriority="low" decoding="async"></picture></div>
+  <div class="hero-slide"><picture><source type="image/webp" srcset="hero3-900.webp 900w, hero3-1538.webp 1538w" sizes="100vw"><img src="hero3.jpg%20%E2%80%93%20L%C3%A5ng%C3%A5s%20Loge-skylten%20i%20%C3%A4ngen.jpeg" alt="Skylten till Långås Loge i ängen, bröllopslokal på västkusten" width="1538" height="1022" loading="lazy" fetchpriority="low" decoding="async"></picture></div>
+  <div class="hero-slide"><picture><source type="image/webp" srcset="hero4-900.webp 900w, hero4-1538.webp 1538w" sizes="100vw"><img src="hero4.jpg%20%E2%80%93%20insidan%20dukad%20f%C3%B6r%20middag%20med%20ljuskronor.jpeg" alt="Långbord dukade för bröllopsmiddag under ljuskronor inne i logen" width="1537" height="1023" loading="lazy" fetchpriority="low" decoding="async"></picture></div>
   <div class="hero-overlay">
     <div class="hero-content">
       <h1 class="hero-headline">En plats för<br>livets stora stunder.</h1>
@@ -374,7 +378,7 @@ footer{background:#f5f4ef;padding:3rem 3rem 1.5rem;border-top:0.5px solid #a7b39
 
 <!-- INTRO -->
 <section class="intro-band">
-  <img src="Hero-bakgrund2.png" alt="Merulo på Långås Loge" class="intro-logo">
+  <picture><source type="image/webp" srcset="intro-logo-400.webp"><img src="Hero-bakgrund2.png" alt="Merulo på Långås Loge" class="intro-logo" width="1672" height="941" decoding="async"></picture>
   <h2 class="intro-tagline">Er dag förtjänar <em>en plats att minnas</em></h2>
   <p class="intro-sub">Merulo på Långås Loge</p>
 </section>
@@ -530,7 +534,7 @@ footer{background:#f5f4ef;padding:3rem 3rem 1.5rem;border-top:0.5px solid #a7b39
     <h2 class="section-title">Vi vet hur det känns<br><em>att leta efter det där stället</em></h2>
     <div class="divider"></div>
     <div class="about-intro">
-      <img src="maria-per.jpg.jpeg" alt="Maria och Per">
+      <picture><source type="image/webp" srcset="maria-per-800.webp"><img src="maria-per.jpg.jpeg" alt="Maria och Per, som driver Merulo på Långås Loge" width="967" height="1600" loading="lazy" decoding="async"></picture>
       <div class="about-intro-text">
         <p>Vi är Maria och Per. Till vardags jobbar vi med barn och ungdomar i skolan, men vi har alltid gillat att <em>skapa minnesvärda upplevelser</em> och fixa fester som folk pratar om långt efteråt.</p>
         <p>När vi själva letade efter en festlokal insåg vi att något saknades: en plats som kombinerar den <em>äkta lantliga idyllen</em> med allt det praktiska redan på plats. Den platsen ville vi skapa.</p>
