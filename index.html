@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- v40 -->
+<!-- v41 -->
 <html lang="sv">
 <head>
 <meta charset="UTF-8">
@@ -167,6 +167,18 @@ section{padding:5rem 2rem;scroll-margin-top:100px;}
 .tl-close .c-big{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;color:#2f332a;line-height:1.4;margin-bottom:.5rem;}
 .tl-close .c-small{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#6d7361;}
 
+/* BRA ATT VETA */
+#bravetta{background:#f5f4ef;}
+.faq-wrap{max-width:740px;margin:0 auto;}
+.faq details{border-bottom:0.5px solid #dcded2;}
+.faq details:first-child{border-top:0.5px solid #dcded2;}
+.faq summary{list-style:none;cursor:pointer;padding:1.15rem .2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:#2f332a;}
+.faq summary::-webkit-details-marker{display:none;}
+.faq summary::after{content:'+';font-family:'Jost',sans-serif;font-size:1.1rem;color:#8caad6;flex-shrink:0;}
+.faq details[open] summary::after{content:'\2013';}
+.faq summary:hover{color:#5e6353;}
+.faq .faq-a{padding:0 .2rem 1.3rem;font-size:14px;font-weight:300;line-height:1.75;color:#3a3f33;max-width:620px;}
+
 /* BOKNING */
 #bokning{background:#f5f4ef;}
 .book-subtitle{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:300;font-style:italic;color:#5e6353;text-align:center;margin-bottom:.5rem;}
@@ -249,6 +261,8 @@ footer{background:#f5f4ef;padding:3rem 3rem 1.5rem;border-top:0.5px solid #a7b39
   .two-col{grid-template-columns:1fr;gap:2rem;}
   .about-intro{grid-template-columns:1fr;gap:1.5rem;}
   .about-intro picture{position:static;max-width:400px;margin:0 auto;}
+  .faq summary{font-size:1.08rem;padding:1rem .1rem;}
+  .faq .faq-a{padding:0 .1rem 1.15rem;}
   .steps{grid-template-columns:1fr;}
   .section-title{font-size:clamp(1.45rem,7.2vw,2.2rem);}
   .hero-footer{padding:1.5rem 1.5rem;gap:.9rem 2rem;}
@@ -330,6 +344,86 @@ footer{background:#f5f4ef;padding:3rem 3rem 1.5rem;border-top:0.5px solid #a7b39
     "https://www.instagram.com/hos.merulo",
     "https://www.facebook.com/langasloge/?locale=sv_SE",
     "https://langasloge.se"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Hur många gäster får plats?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Långås Loge passar för både mindre och större bröllop med upp till 150 gäster. Lokalen kan möbleras på olika sätt beroende på antal gäster och önskemål."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Finns det parkering?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, det finns gott om parkeringsmöjligheter i anslutning till logen. Det finns även ställplatser för husbil och husvagn, dock utan el- och vattenanslutningar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kan vi ha vigsel på plats?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, det finns fina möjligheter att hålla vigsel både utomhus i en skogslund och inne i logen, beroende på väder och önskemål."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Finns det kök?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, det finns ett serveringskök och diskutrymme som passar de flesta cateringlösningar."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kan vi ta med egen mat och dryck?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, ni väljer själva catering, dryck och övriga leverantörer."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Måste vi använda era samarbetspartners?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Nej. Ni väljer helt fritt. Våra samarbetspartners finns som inspiration och kan ofta erbjuda förmånliga villkor."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hur fungerar städningen?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ni lämnar logen enligt vår städchecklista. Det innebär bland annat att lokalen städas, möbler återställs och allt avfall tas med från platsen. Alternativt bokar ni till städning via en av våra samarbetspartners."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Kan vi komma på visning?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Ja, vi erbjuder både bokade privata visningar och öppna visningsdagar under året."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Hur bokar vi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Skicka en bokningsförfrågan via hemsidan så återkommer vi och bekräftar om ert datum är ledigt."
+      }
+    }
   ]
 }
 </script>
@@ -465,6 +559,28 @@ footer{background:#f5f4ef;padding:3rem 3rem 1.5rem;border-top:0.5px solid #a7b39
         <p class="step-title">Vi förmedlar kontakter</p>
         <p class="step-desc">Vill ni ha tips kopplar vi er till Falkenbergs bästa lokala aktörer – ofta till <em>förmånligare priser</em> tack vare våra samarbeten. Men ni bestämmer, alltid.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- BRA ATT VETA -->
+<section id="bravetta">
+  <div class="section-inner">
+    <p class="tag">Bra att veta</p>
+    <h2 class="section-title">Praktiska frågor<br><em>inför er dag</em></h2>
+    <div class="divider"></div>
+  </div>
+  <div class="faq-wrap">
+    <div class="faq">
+      <details><summary>Hur många gäster får plats?</summary><p class="faq-a">Långås Loge passar för både mindre och större bröllop med upp till 150 gäster. Lokalen kan möbleras på olika sätt beroende på antal gäster och önskemål.</p></details>
+      <details><summary>Finns det parkering?</summary><p class="faq-a">Ja, det finns gott om parkeringsmöjligheter i anslutning till logen. Det finns även ställplatser för husbil och husvagn, dock utan el- och vattenanslutningar.</p></details>
+      <details><summary>Kan vi ha vigsel på plats?</summary><p class="faq-a">Ja, det finns fina möjligheter att hålla vigsel både utomhus i en skogslund och inne i logen, beroende på väder och önskemål.</p></details>
+      <details><summary>Finns det kök?</summary><p class="faq-a">Ja, det finns ett serveringskök och diskutrymme som passar de flesta cateringlösningar.</p></details>
+      <details><summary>Kan vi ta med egen mat och dryck?</summary><p class="faq-a">Ja, ni väljer själva catering, dryck och övriga leverantörer.</p></details>
+      <details><summary>Måste vi använda era samarbetspartners?</summary><p class="faq-a">Nej. Ni väljer helt fritt. Våra samarbetspartners finns som inspiration och kan ofta erbjuda förmånliga villkor.</p></details>
+      <details><summary>Hur fungerar städningen?</summary><p class="faq-a">Ni lämnar logen enligt vår städchecklista. Det innebär bland annat att lokalen städas, möbler återställs och allt avfall tas med från platsen. Alternativt bokar ni till städning via en av våra samarbetspartners.</p></details>
+      <details><summary>Kan vi komma på visning?</summary><p class="faq-a">Ja, vi erbjuder både bokade privata visningar och öppna visningsdagar under året.</p></details>
+      <details><summary>Hur bokar vi?</summary><p class="faq-a">Skicka en bokningsförfrågan via hemsidan så återkommer vi och bekräftar om ert datum är ledigt.</p></details>
     </div>
   </div>
 </section>
