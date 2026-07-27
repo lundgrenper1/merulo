@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- v44 -->
+<!-- v45 -->
 <html lang="sv">
 <head>
 <meta charset="UTF-8">
@@ -156,13 +156,6 @@ section{padding:5rem 2rem;scroll-margin-top:100px;}
 .tl-clock{display:flex;align-items:center;justify-content:center;gap:.7rem;background:#eef1e9;border:0.5px solid #dfe4d6;border-radius:8px;padding:1.1rem 1.4rem;margin:2.8rem auto 0;max-width:540px;}
 .tl-clock i{font-size:20px;color:#8a9678;}
 .tl-clock p{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:#2f332a;}
-.tl-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:0;background:#eef1e9;border:0.5px solid #dfe4d6;border-radius:8px;margin:1.5rem auto 0;max-width:1000px;overflow:hidden;}
-.tl-card{display:flex;gap:1rem;align-items:flex-start;padding:1.6rem 1.5rem;}
-.tl-card+.tl-card{border-left:0.5px solid #dfe4d6;}
-.tl-card-ic{flex-shrink:0;width:56px;height:56px;border-radius:50%;background:#f5f4ef;display:flex;align-items:center;justify-content:center;}
-.tl-card-ic i{font-size:24px;color:#8a9678;}
-.tl-card h4{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:400;color:#2f332a;margin-bottom:.35rem;}
-.tl-card p{font-size:12px;line-height:1.65;color:#5e6353;font-weight:300;}
 .tl-close{text-align:center;background:#eef1e9;border:0.5px solid #dfe4d6;border-radius:8px;padding:2.2rem 2rem;margin:1.5rem auto 0;max-width:1000px;}
 .tl-close .c-big{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:300;color:#2f332a;line-height:1.4;margin-bottom:.5rem;}
 .tl-close .c-small{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#6d7361;}
@@ -275,8 +268,6 @@ footer{background:#f5f4ef;padding:3rem 3rem 1.5rem;border-top:0.5px solid #a7b39
   .tl-clock{padding:.95rem .8rem;gap:.45rem;}
   .tl-clock i{font-size:16px;}
   .tl-clock p{font-size:clamp(.78rem,3.9vw,1.2rem);white-space:nowrap;}
-  .tl-cards{grid-template-columns:1fr;}
-  .tl-card+.tl-card{border-left:0;border-top:0.5px solid #dfe4d6;}
   .book-grid{grid-template-columns:1fr;}
   .form-row{grid-template-columns:1fr;}
   section{padding:3rem 1.5rem;}
@@ -493,6 +484,9 @@ footer{background:#f5f4ef;padding:3rem 3rem 1.5rem;border-top:0.5px solid #a7b39
       <div class="inc-card"><i class="ti ti-glass"></i><p class="inc-card-title">Komplett porslin, glas &amp; bestick</p><p class="inc-card-desc">Komplett porslin, glas och bestick för samtliga gäster.</p></div>
       <div class="inc-card"><i class="ti ti-fridge"></i><p class="inc-card-title">Kylförvaring</p><p class="inc-card-desc">Gott om plats för mat och dryck i flera kylskåp.</p></div>
       <div class="inc-card"><i class="ti ti-device-tv"></i><p class="inc-card-title">Presentation &amp; bildvisning</p><p class="inc-card-desc">För bildspel, film eller presentation – enkelt att använda.</p></div>
+      <div class="inc-card"><i class="ti ti-tools-kitchen-2"></i><p class="inc-card-title">Diskutrymme &amp; slutdisk</p><p class="inc-card-desc">Diskutrymme med diskmaskin. Ni grovdiskar – slutdisken sköter vi.</p></div>
+      <div class="inc-card"><i class="ti ti-wash-machine"></i><p class="inc-card-title">Textilier &amp; tvätt</p><p class="inc-card-desc">Dukar och övriga textilier ingår. Efter ert besök tar vi hand om tvätten.</p></div>
+      <div class="inc-card"><i class="ti ti-spray"></i><p class="inc-card-title">Slutstädning ingår</p><p class="inc-card-desc">Ni tömmer logen på era saker och tar med avfallet. Slutstädningen sköter vi.</p></div>
     </div>
   </div>
   <div class="tjanster-price">
@@ -524,11 +518,6 @@ footer{background:#f5f4ef;padding:3rem 3rem 1.5rem;border-top:0.5px solid #a7b39
       <div class="tl-step"><p class="tl-day">M&aring;ndag</p><div class="tl-node"><div class="tl-circle"><i class="ti ti-home"></i></div></div><p class="tl-title">&Aring;terl&auml;mning</p><p class="tl-desc">Ta med er era saker och l&auml;mna tillbaka logen &ndash; slutst&auml;dningen sk&ouml;ter vi.</p></div>
     </div>
     <div class="tl-clock"><i class="ti ti-clock"></i><p>Festligheterna avslutas senast 02.00.</p></div>
-    <div class="tl-cards">
-      <div class="tl-card"><div class="tl-card-ic"><i class="ti ti-spray"></i></div><div><h4>Slutst&auml;dning ing&aring;r</h4><p>Ni tar med era saker, t&ouml;mmer kylsk&aring;pet och tar med avfallet. Sj&auml;lva slutst&auml;dningen sk&ouml;ter vi.</p></div></div>
-      <div class="tl-card"><div class="tl-card-ic"><i class="ti ti-tools-kitchen-2"></i></div><div><h4>Diskutrymme</h4><p>Diskutrymme med diskmaskin finns. Grovdisk g&ouml;r ni &ndash; slutdisk sk&ouml;ter vi.</p></div></div>
-      <div class="tl-card"><div class="tl-card-ic"><i class="ti ti-wash-machine"></i></div><div><h4>Textilier</h4><p>Dukar och &ouml;vriga textilier tar vi hand om och tv&auml;ttar efter ert bes&ouml;k.</p></div></div>
-    </div>
     <div class="tl-close">
       <p class="c-big">En helg i lugn och ro ger er friheten att skapa minnen f&ouml;r livet.</p>
       <p class="c-small">Mer tid &middot; Mindre stress &middot; Fler minnen</p>
