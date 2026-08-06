@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- v49 -->
+<!-- v50 -->
 <html lang="sv">
 <head>
 <meta charset="UTF-8">
@@ -587,7 +587,7 @@ footer{background:#f5f4ef;padding:3rem 3rem 1.5rem;border-top:0.5px solid #a7b39
           <span class="cal-month" id="cal-title"></span>
           <button class="cal-nav" onclick="changeMonth(1)" aria-label="Nästa månad">&#8250;</button>
         </div>
-        <p class="cal-error" id="cal-error">Vi kunde tyvärr inte hämta de lediga datumen just nu, så kalendern nedan visar <strong>inte</strong> vad som är bokat. Skicka gärna en förfrågan ändå och skriv önskat datum under &quot;Övriga önskemål&quot; – eller ring oss på 070-830 15 42.</p>
+        <p class="cal-error" id="cal-error">Vi kunde tyvärr inte kontrollera vilka datum som är lediga just nu. Välj ändå ert datum och skicka förfrågan &ndash; vi återkommer inom 48 timmar och bekräftar om det är ledigt. Ni når oss också på 070-830 15 42.</p>
         <div class="cal-grid" id="cal-names"></div>
         <div class="cal-grid" id="cal-days"></div>
         <div class="legend" id="cal-legend">
@@ -753,11 +753,10 @@ function renderCal(){
     const isSel=selDate&&selDate.getFullYear()===y&&selDate.getMonth()===m&&selDate.getDate()===d;
     let cls='cal-day';
     if(isPast)cls+=' past';
-    else if(calError)cls+=' unknown';
     else if(isSel)cls+=' selected';
     else if(isBooked)cls+=' booked';
     else cls+=' free';
-    const click=(!isPast&&!isBooked&&!calError)?`onclick="selectDay(${y},${m},${d})"`:''
+    const click=(!isPast&&!isBooked)?`onclick="selectDay(${y},${m},${d})"`:''
     html+=`<div class="${cls}" ${click}>${d}</div>`;
   }
   document.getElementById('cal-days').innerHTML=html;
@@ -774,24 +773,34 @@ function selectDay(y,m,d){
 
 function changeMonth(dir){cur.setMonth(cur.getMonth()+dir);renderCal();}
 
-fetch(ICAL_URL)
-  .then(r=>{
-    if(!r.ok) throw new Error('HTTP '+r.status);
-    return r.text();
-  })
-  .then(text=>{
-    console.log('iCal fetched, length:', text.length, 'preview:', text.substring(0,200));
-    bookedDates=parseIcal(text);
-    console.log('Parsed bookedDates:', JSON.stringify(bookedDates));
-    renderCal();
-  })
-  .catch(e=>{
-    console.error('Kalender-fel:', e);
-    calError=true;
-    const lbl=document.getElementById('selected-label');
-    if(lbl) lbl.textContent='Ange önskat datum under "Övriga önskemål" nedan.';
-    renderCal();
-  });
+function hamtaKalender(forsok){
+  var ctrl = new AbortController();
+  var tid = setTimeout(function(){ ctrl.abort(); }, 8000);
+  fetch(ICAL_URL, {signal: ctrl.signal})
+    .then(function(r){
+      clearTimeout(tid);
+      if(!r.ok) throw new Error('HTTP '+r.status);
+      return r.text();
+    })
+    .then(function(text){
+      console.log('iCal fetched, length:', text.length);
+      bookedDates=parseIcal(text);
+      console.log('Parsed bookedDates:', JSON.stringify(bookedDates));
+      calError=false;
+      renderCal();
+    })
+    .catch(function(e){
+      clearTimeout(tid);
+      console.warn('Kalender-fel (forsok '+forsok+' av 2):', (e && e.message) ? e.message : e);
+      if(forsok < 2){
+        setTimeout(function(){ hamtaKalender(forsok+1); }, 2000);
+      } else {
+        calError=true;
+        renderCal();
+      }
+    });
+}
+hamtaKalender(1);
 
 document.getElementById('booking-form').addEventListener('submit', function(e){
   e.preventDefault();
