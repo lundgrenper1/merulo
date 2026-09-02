@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- v51 -->
+<!-- v52 -->
 <html lang="sv">
 <head>
 <meta charset="UTF-8">
@@ -184,6 +184,10 @@ section{padding:5rem 2rem;scroll-margin-top:100px;}
 .card{background:#fff;border:0.5px solid #dcded2;border-radius:8px;padding:1.5rem;}
 .cal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:1.2rem;}
 .cal-month{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:#2f332a;font-weight:500;}
+.cal-pick{display:flex;align-items:center;gap:.2rem;}
+.cal-select{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:#2f332a;font-weight:500;background-color:transparent;border:0;border-radius:4px;padding:.15rem 1.1rem .15rem .4rem;cursor:pointer;appearance:none;-webkit-appearance:none;outline:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9' height='6' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%237e846f' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .35rem center;}
+.cal-select:hover{background-color:#e7ece0;}
+.cal-select:focus-visible{box-shadow:0 0 0 2px #8caad6;}
 .cal-nav{background:none;border:0.5px solid #a7b394;border-radius:50%;width:30px;height:30px;cursor:pointer;color:#3a3f33;font-size:14px;display:flex;align-items:center;justify-content:center;}
 .cal-nav:hover{background:#e7ece0;}
 .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:3px;}
@@ -588,7 +592,10 @@ footer{background:#f5f4ef;padding:3rem 3rem 1.5rem;border-top:0.5px solid #a7b39
       <div class="card">
         <div class="cal-header">
           <button class="cal-nav" onclick="changeMonth(-1)" aria-label="Föregående månad">&#8249;</button>
-          <span class="cal-month" id="cal-title"></span>
+          <div class="cal-pick">
+            <select class="cal-select" id="cal-m" aria-label="Välj månad"></select>
+            <select class="cal-select" id="cal-y" aria-label="Välj år"></select>
+          </div>
           <button class="cal-nav" onclick="changeMonth(1)" aria-label="Nästa månad">&#8250;</button>
         </div>
         <p class="cal-error" id="cal-error">Vi kunde tyvärr inte kontrollera vilka datum som är lediga just nu. Välj ändå ert datum och skicka förfrågan &ndash; vi återkommer inom 48 timmar och bekräftar om det är ledigt. Ni når oss också på 070-830 15 42.</p>
@@ -737,7 +744,14 @@ function getBooked(y,m){return bookedDates[y+'-'+(m+1)]||[];}
 
 function renderCal(){
   const y=cur.getFullYear(),m=cur.getMonth();
-  document.getElementById('cal-title').textContent=MONTHS[m]+' '+y;
+  var mS=document.getElementById('cal-m'), yS=document.getElementById('cal-y');
+  if(mS) mS.value=m;
+  if(yS){
+    if(!yS.querySelector('option[value="'+y+'"]')){
+      var o=document.createElement('option'); o.value=y; o.textContent=y; yS.appendChild(o);
+    }
+    yS.value=y;
+  }
   document.getElementById('cal-names').innerHTML=DAYS.map(d=>`<div class="cal-day-name">${d}</div>`).join('');
   const first=new Date(y,m,1).getDay();
   const offset=first===0?6:first-1;
@@ -776,6 +790,18 @@ function selectDay(y,m,d){
 }
 
 function changeMonth(dir){cur.setMonth(cur.getMonth()+dir);renderCal();}
+
+function fyllValjare(){
+  var mS=document.getElementById('cal-m'), yS=document.getElementById('cal-y');
+  if(!mS||!yS) return;
+  mS.innerHTML=MONTHS.map(function(namn,i){return '<option value="'+i+'">'+namn+'</option>';}).join('');
+  var nu=new Date().getFullYear(), ar='';
+  for(var y=nu-1;y<=nu+3;y++) ar+='<option value="'+y+'">'+y+'</option>';
+  yS.innerHTML=ar;
+  mS.addEventListener('change',function(){cur.setDate(1);cur.setMonth(parseInt(mS.value,10));renderCal();});
+  yS.addEventListener('change',function(){cur.setDate(1);cur.setFullYear(parseInt(yS.value,10));renderCal();});
+}
+fyllValjare();
 
 function hamtaKalender(forsok){
   var ctrl = new AbortController();
