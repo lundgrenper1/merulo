@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- v53 -->
+<!-- v54 -->
 <html lang="sv">
 <head>
 <meta charset="UTF-8">
@@ -612,14 +612,18 @@ footer{background:#f5f4ef;padding:3rem 3rem 1.5rem;border-top:0.5px solid #a7b39
         <form id="booking-form" action="https://formspree.io/f/mbdejbev" method="POST">
           <p class="selected-date" id="selected-label">Välj ett datum i kalendern</p>
           <input type="hidden" name="datum" id="f-datum" value="">
-          <div class="form-group"><label class="form-label">Namn</label><input class="form-input" id="f-name" name="namn" type="text" placeholder="Ert fullständiga namn" required></div>
+          <div class="form-group"><label class="form-label">Namn</label><input class="form-input" id="f-name" name="namn" type="text" placeholder="Ert fullständiga namn" autocomplete="name" required></div>
           <div class="form-row">
-            <div class="form-group"><label class="form-label">E-post</label><input class="form-input" id="f-email" name="epost" type="email" placeholder="er@email.se" required></div>
-            <div class="form-group"><label class="form-label">Telefon</label><input class="form-input" id="f-phone" name="telefon" type="tel" placeholder="070-000 00 00"></div>
+            <div class="form-group"><label class="form-label">E-post</label><input class="form-input" id="f-email" name="epost" type="email" placeholder="er@email.se" autocomplete="email" required></div>
+            <div class="form-group"><label class="form-label">Telefon</label><input class="form-input" id="f-phone" name="telefon" type="tel" placeholder="070-000 00 00" autocomplete="tel"></div>
           </div>
           <div class="form-group"><label class="form-label">Typ av fest</label><select class="form-select" id="f-type" name="typ_av_fest" required><option value="">Välj...</option><option>Bröllop</option><option>Jubileum</option><option>Födelsedag</option><option>Företagsevent</option><option>Annat</option></select></div>
           <div class="form-group"><label class="form-label">Antal gäster (ungefär)</label><input class="form-input" id="f-guests" name="antal_gaster" type="number" placeholder="ex. 80"><p class="form-hint">Lokalen rymmer 150 personer totalt, inklusive band, catering och övrig personal.</p></div>
-          <div class="form-group"><label class="form-label">Er adress</label><input class="form-input" id="f-adress" name="faktureringsadress" type="text" placeholder="Gata, postnummer och ort"></div>
+          <div class="form-group"><label class="form-label">Er adress</label><input class="form-input" id="f-adress" name="gatuadress" type="text" placeholder="Gata och nummer" autocomplete="street-address"></div>
+          <div class="form-row">
+            <div class="form-group"><label class="form-label">Postnummer</label><input class="form-input" id="f-postnr" name="postnummer" type="text" inputmode="numeric" placeholder="123 45" autocomplete="postal-code"></div>
+            <div class="form-group"><label class="form-label">Ort</label><input class="form-input" id="f-ort" name="ort" type="text" placeholder="Falkenberg" autocomplete="address-level2"></div>
+          </div>
           <div class="form-group"><label class="form-label">Övriga önskemål</label><textarea class="form-textarea" id="f-msg" name="onskeman" placeholder="Berätta gärna lite mer om er dag..."></textarea></div>
           <button type="submit" class="btn-submit">Skicka förfrågan</button>
         </form>
